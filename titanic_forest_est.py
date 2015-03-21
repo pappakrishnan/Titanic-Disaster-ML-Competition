@@ -85,7 +85,7 @@ print ('Training...')
 forest = RandomForestClassifier(n_estimators=100)
 forest = forest.fit( train_data[0::,1::], train_data[0::,0] )
 
-print 'Predicting...'
+print ('Predicting...')
 output = forest.predict(test_data).astype(int)
 
 
@@ -94,4 +94,4 @@ open_file_object = csv.writer(predictions_file)
 open_file_object.writerow(["PassengerId","Survived"])
 open_file_object.writerows(zip(ids, output))
 predictions_file.close()
-print 'Done.'
+print ('Done.')

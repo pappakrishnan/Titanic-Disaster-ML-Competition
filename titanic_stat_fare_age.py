@@ -54,6 +54,3 @@ ax3.hist(age_30)
 ax4.hist(age_40)
 plt.show()
 #final.to_csv('E:/Kaggle_Titanic/results_age_fare.csv', index=False)
-
-
-
