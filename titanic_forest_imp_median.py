@@ -127,4 +127,4 @@ survival_pred = pd.Series(survival_pred)
 s = {'PassengerId': Id, 'Survived': survival_pred}    
 survival_predict = pd.DataFrame(data = s, columns = ['PassengerId','Survived'])
   
-survival_predict.to_csv('E:/Kaggle_Titanic/results_01_31_1.csv', index=False)
+survival_predict.to_csv('E:/Kaggle_Titanic/results_03_27_1.csv', index=False)
