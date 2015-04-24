@@ -75,7 +75,7 @@ test_data = con2[['Pclass','Age', 'Sex', 'SibSp', 'Parch','Fare','Embarked']]
 rfc = RandomForestClassifier(n_estimators = 2000, n_jobs = -1, oob_score=True)
 
 train_x, valid_x, train_y, valid_y = cv.train_test_split(train_data,\
-                             train_survival, test_size = 0.1, random_state = 4)
+                             train_survival, test_size = 0.3, random_state = 4)
 """
 #Model:1 (normal model)
 classifier1 = rfc.fit(train_x, np.ravel(train_y))
@@ -105,7 +105,7 @@ x_data = pca.fit_transform(train_data, np.ravel(train_data))
 x_data = pd.DataFrame(x_data)
 
 train_xpca, valid_xpca, train_ypca, valid_ypca = cv.train_test_split(x_data,\
-                             train_survival, test_size = 0.1, random_state = 4)
+                             train_survival, test_size = 0.3, random_state = 4)
                              
 param_grid_pca = {"max_depth": [3, None],
                   "max_features": [2, 4, 6],
@@ -136,11 +136,11 @@ print('ROC AUC3:', ROC_auc3)
 
 #Plotting ROC curve:
 plt.figure()
-plt.plot(fpr1, tpr1, label ='ROC curve1 (Area = %0.2f)'% ROC_auc1)
+plt.plot(fpr1, tpr1, label ='RF (Area = %0.2f)'% ROC_auc1)
 plt.plot([0,1],[0,1],'k--')
-plt.plot(fpr2, tpr2, label ='ROC curve2 (Area = %0.2f)'% ROC_auc2)
+plt.plot(fpr2, tpr2, label ='RF-Grid (Area = %0.2f)'% ROC_auc2)
 plt.plot([0,1],[0,1],'k--')
-plt.plot(fpr3, tpr3, label ='ROC curve3 (Area = %0.2f)'% ROC_auc3)
+plt.plot(fpr3, tpr3, label ='RF-Grid-PCA (Area = %0.2f)'% ROC_auc3)
 plt.plot([0,1],[0,1],'k--')
 
 plt.title('ROC Curve')
